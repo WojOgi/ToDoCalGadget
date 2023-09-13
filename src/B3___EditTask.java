@@ -8,13 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class B3___EditTask {
-    public static void main(String[] args) throws IOException {
 
-        Communication communication = new Communication();
-        FileReadingService fileReadingService = new FileReadingService();
-        FileWritingService fileWritingService = new FileWritingService();
-        Scanner scanner = new Scanner(System.in);
-
+    public static void B3(Communication communication, FileReadingService fileReadingService, FileWritingService fileWritingService, Scanner scanner) throws IOException {
         communication.showTasks();
 
         List<String> lines = fileReadingService.extractAllLines();
@@ -43,7 +38,6 @@ public class B3___EditTask {
         identifiedTask.setDueDate(dueDate);
 
         fileWritingService.writeListOfTasksIntoDatabase(tasks);
-
     }
 
 

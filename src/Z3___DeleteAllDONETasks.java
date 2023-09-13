@@ -7,11 +7,7 @@ import java.util.List;
 
 public class Z3___DeleteAllDONETasks {
 
-    public static void main(String[] args) throws IOException {
-
-        FileReadingService fileReadingService = new FileReadingService();
-        FileWritingService fileWritingService = new FileWritingService();
-
+    public static void Z3(FileReadingService fileReadingService, FileWritingService fileWritingService) throws IOException {
         List<String> lines = fileReadingService.extractAllLines();
 
         List<Task> tasks = fileReadingService.getTasks(lines);

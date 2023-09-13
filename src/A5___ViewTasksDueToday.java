@@ -7,9 +7,8 @@ import java.util.List;
 
 public class A5___ViewTasksDueToday {
 
-    public static void main(String[] args) throws IOException {
-        FileReadingService fileReadingService = new FileReadingService();
 
+    public static void A5(FileReadingService fileReadingService) throws IOException {
         List<String> lines = fileReadingService.extractAllLines();
 
         List<Task> tasks = fileReadingService.getTasks(lines);

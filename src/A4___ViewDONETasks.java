@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class A4___ViewDONETasks {
-    public static void main(String[] args) throws IOException {
-        FileReadingService fileReadingService = new FileReadingService();
 
+
+    public static void A4(FileReadingService fileReadingService) throws IOException {
         List<String> lines = fileReadingService.extractAllLines();
 
         List<Task> tasks = fileReadingService.getTasks(lines);
@@ -17,6 +17,5 @@ public class A4___ViewDONETasks {
                         .filter(x->x.getTaskStatus().equals("DONE")).toList();
 
         fileReadingService.showTasksInConsole(tasksTODO);
-
     }
 }

@@ -7,11 +7,7 @@ import java.util.Scanner;
 
 public class B1___CreateNewTask {
 
-    public static void main(String[] args) throws IOException {
-
-        Communication communication = new Communication();
-        Scanner scanner = new Scanner(System.in);
-
+    public static void B1(Communication communication, Scanner scanner) {
         communication.queryToAddTask();
         communication.queryForTaskTitle();
         String taskTitle = scanner.nextLine();
@@ -20,7 +16,7 @@ public class B1___CreateNewTask {
         communication.queryForTaskCompletionDate();
         String dueDate = scanner.nextLine();
         double randomDouble = Math.random();
-        Integer iD = (int) (randomDouble*10000);
+        Integer iD = (int) (randomDouble * 10000);
         String iDString = iD.toString();
 
         System.out.println(iD);

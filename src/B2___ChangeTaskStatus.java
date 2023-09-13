@@ -9,13 +9,7 @@ import java.util.Scanner;
 
 public class B2___ChangeTaskStatus {
 
-    public static void main(String[] args) throws IOException {
-
-        Communication communication = new Communication();
-        FileReadingService fileReadingService = new FileReadingService();
-        FileWritingService fileWritingService = new FileWritingService();
-        Scanner scanner = new Scanner(System.in);
-
+    public static void B2(Communication communication, FileReadingService fileReadingService, FileWritingService fileWritingService, Scanner scanner) throws IOException {
         communication.showTasks();
 
         List<String> lines = fileReadingService.extractAllLines();
@@ -37,6 +31,5 @@ public class B2___ChangeTaskStatus {
         identifiedTask.setTaskStatus(taskStatus);
 
         fileWritingService.writeListOfTasksIntoDatabase(tasks);
-
     }
 }

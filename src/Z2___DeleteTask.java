@@ -9,13 +9,7 @@ import java.util.Scanner;
 
 public class Z2___DeleteTask {
 
-    public static void main(String[] args) throws IOException {
-
-        Communication communication = new Communication();
-        FileReadingService fileReadingService = new FileReadingService();
-        FileWritingService fileWritingService = new FileWritingService();
-        Scanner scanner = new Scanner(System.in);
-
+    public static void Z2(Communication communication, FileReadingService fileReadingService, FileWritingService fileWritingService, Scanner scanner) throws IOException {
         communication.showTasks();
 
         List<String> lines = fileReadingService.extractAllLines();

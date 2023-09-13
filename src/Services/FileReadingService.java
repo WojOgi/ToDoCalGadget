@@ -7,6 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +29,7 @@ public class FileReadingService {
                 String taskTitle = lines.get(i + 2);
                 String taskDescription = lines.get(i + 3);
                 String dueDate = lines.get(i + 4);
-                String taskStatus = lines.get(i+5);
+                String taskStatus = lines.get(i + 5);
 
                 Task task = new Task(iD, taskTitle, taskDescription, dueDate, taskStatus);
                 tasks.add(task);
@@ -36,14 +39,19 @@ public class FileReadingService {
     }
 
     public void showTasksInConsole(List<Task> tasks) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate currentDate = LocalDate.now();
+
         tasks.forEach(x -> {
-            System.out.println(x.getTaskTitle());
-            System.out.println(x.getTaskDescription());
-            System.out.println(x.getDueDate());
-            System.out.println(x.getTaskStatus());
+            LocalDate taskDueDate = LocalDate.parse(x.getDueDate(), dateTimeFormatter);
+            long daysBetween = ChronoUnit.DAYS.between(currentDate, taskDueDate);
+
+            System.out.println("Task Title:\t\t\t\t" + x.getTaskTitle());
+            System.out.println("Task Description:\t\t" + x.getTaskDescription());
+            System.out.print("Task is due on:\t\t\t" + x.getDueDate());
+            System.out.println(" (" + daysBetween + " days left)");
+            System.out.println("Task status:\t\t\t" + x.getTaskStatus());
             System.out.println();
         });
     }
-
-
 }

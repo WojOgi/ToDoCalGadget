@@ -8,11 +8,8 @@ import java.util.Scanner;
 
 public class A6___ViewTasksDueOnDate {
 
-    public static void main(String[] args) throws IOException {
-        FileReadingService fileReadingService = new FileReadingService();
-        Communication communication = new Communication();
-        Scanner scanner = new Scanner(System.in);
 
+    public static void A6(FileReadingService fileReadingService, Communication communication, Scanner scanner) throws IOException {
         List<String> lines = fileReadingService.extractAllLines();
 
         List<Task> tasks = fileReadingService.getTasks(lines);
